@@ -14,7 +14,12 @@ def load_config() -> Dict[str, Any]:
         "bearer_token": "",
         "csrf_token": "",
         "cookies": "",
-        "user_id": ""
+        "user_id": "",
+        "user_agent": "Mozilla/5.0",
+        "x_twitter_auth_type": "OAuth2Session",
+        "x_twitter_active_user": "yes",
+        "x_twitter_client_language": "en",
+        "accept_language": "en-US,en;q=0.9"
     }
 
 

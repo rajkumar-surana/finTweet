@@ -19,6 +19,28 @@ class TwitterClient:
         self.csrf_token = config.get("csrf_token", "")
         self.cookies = config.get("cookies", "")
         self.user_id = config.get("user_id", "")
+        self.user_agent = config.get("user_agent", "finTweetBot/1.0")
+        self.x_twitter_auth_type = config.get("x_twitter_auth_type", "OAuth2Session")
+        self.x_twitter_active_user = config.get("x_twitter_active_user", "yes")
+        self.x_twitter_client_language = config.get("x_twitter_client_language", "en")
+        self.accept_language = config.get("accept_language", "en-US,en;q=0.9")
+        self.session = requests.Session()
+
+    def _auth_headers(self) -> Dict[str, str]:
+        base_headers = {
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": self.accept_language,
+            "x-twitter-active-user": self.x_twitter_active_user,
+            "x-twitter-auth-type": self.x_twitter_auth_type,
+            "x-twitter-client-language": self.x_twitter_client_language,
+            "content-type": "application/json",
+            "user-agent": self.user_agent,
+            "Authorization": f"Bearer {self.bearer_token}",
+            "x-csrf-token": self.csrf_token,
+            "cookie": self.cookies,
+        }
+        return base_headers
         self.session = requests.Session()
 
     def _auth_headers(self) -> Dict[str, str]:
