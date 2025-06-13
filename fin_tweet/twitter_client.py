@@ -41,6 +41,16 @@ class TwitterClient:
             "cookie": self.cookies,
         }
         return base_headers
+        self.session = requests.Session()
+
+    def _auth_headers(self) -> Dict[str, str]:
+        return {
+            "Authorization": f"Bearer {self.bearer_token}",
+            "x-csrf-token": self.csrf_token,
+            "content-type": "application/json",
+            "user-agent": "finTweetBot/1.0",
+            "cookie": self.cookies,
+        }
 
     def get_following(self, count: int = 20, cursor: Optional[str] = None) -> Dict:
         url = "https://x.com/i/api/graphql/UEMg7scHEoC_FsYmXhkRkQ/Following"

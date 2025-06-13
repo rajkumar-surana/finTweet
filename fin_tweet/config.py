@@ -19,7 +19,7 @@ def load_config() -> Dict[str, Any]:
         "x_twitter_auth_type": "OAuth2Session",
         "x_twitter_active_user": "yes",
         "x_twitter_client_language": "en",
-        "accept_language": "en-US,en;q=0.9",
+        "accept_language": "en-US,en;q=0.9"
     }
 
 
