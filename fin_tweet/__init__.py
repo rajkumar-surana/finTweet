@@ -1,0 +1,1 @@
+"""finTweet data collection package."""

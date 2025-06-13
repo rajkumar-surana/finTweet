@@ -1,0 +1,5 @@
+fin_tweet.db
+test_fin_tweet.db
+__pycache__/
+.pytest_cache/
+config.json
