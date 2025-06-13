@@ -17,3 +17,36 @@ Any questions you have in building this system, you will ask without hesitating 
 5. add sort by mentions+/- that will tells us about the hype, so give bullish, bearish, contradictory tags as per sentiments overall on daily, weekly basis
 6. it should update every hour use whatever storage you think would do better, as you may know each hour we take update from different topics and then we update our view on the basis of new info
 7. use whatever gpt model you see would work best
+
+## Local Setup
+
+1. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Create `config.json` in the project root with your Twitter credentials:
+
+```json
+{
+  "bearer_token": "YOUR_TOKEN",
+  "csrf_token": "",
+  "cookies": "",
+  "user_id": "YOUR_USER_ID"
+}
+```
+
+3. Initialize the database and fetch your following list:
+
+```bash
+python -m fin_tweet.main --follow
+```
+
+4. Fetch recent tweets from all followed accounts:
+
+```bash
+python -m fin_tweet.main --tweets
+```
+
+Data is stored in `fin_tweet.db` (SQLite) by default. Update `config.json` whenever your credentials change.
